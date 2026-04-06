@@ -21,7 +21,7 @@ import customerRoutes from './modules/customers/customer.routes';
 const app = express();
 
 const corsOptions = {
-  origin: [env.ADMIN_APP_URL, env.CUSTOMER_APP_URL],
+  origin: ['https://commy-rosy.vercel.app', 'https://commy-cf2m.vercel.app'],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
