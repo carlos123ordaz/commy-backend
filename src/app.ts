@@ -28,7 +28,7 @@ const corsOptions = {
 };
 
 // Security
-app.use(helmet());
+app.use(helmet({ crossOriginResourcePolicy: false }));
 app.options('*', cors(corsOptions));
 app.use(cors(corsOptions));
 
