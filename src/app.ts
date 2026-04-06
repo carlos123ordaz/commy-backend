@@ -20,6 +20,7 @@ import customerRoutes from './modules/customers/customer.routes';
 
 const app = express();
 
+console.log('env: ', env);
 // Security
 app.use(helmet());
 app.use(
