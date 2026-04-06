@@ -20,17 +20,10 @@ import customerRoutes from './modules/customers/customer.routes';
 
 const app = express();
 
-const corsOptions = {
-  origin: ['https://commy-rosy.vercel.app', 'https://commy-cf2m.vercel.app'],
-  credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-};
-
 // Security
 app.use(helmet({ crossOriginResourcePolicy: false }));
-app.options('*', cors(corsOptions));
-app.use(cors(corsOptions));
+app.use(cors());
+app.options('*', cors());
 
 // Logging
 if (env.isDev) {
