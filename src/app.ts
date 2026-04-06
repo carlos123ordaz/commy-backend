@@ -20,10 +20,17 @@ import customerRoutes from './modules/customers/customer.routes';
 
 const app = express();
 
+const corsOptions = {
+  origin: [env.ADMIN_APP_URL, env.CUSTOMER_APP_URL],
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+};
+
 // Security
 app.use(helmet({ crossOriginResourcePolicy: false }));
-app.use(cors());
-app.options('*', cors());
+app.options('*', cors(corsOptions));
+app.use(cors(corsOptions));
 
 // Logging
 if (env.isDev) {
